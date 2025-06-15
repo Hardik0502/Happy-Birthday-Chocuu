@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Happy Birthday Chocuu</title>
+ <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    .calendar-panel {
+  width: 220px;
+  margin-top: 50px;
+  margin-left: 30px;
+  background: #fff5fa;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  animation: dropIn 1s ease forwards;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-top {
+  background-color: #ccc;
+  color: #333;
+  font-size: 1.2em;
+  padding: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  font-size: 5em;
+  color: #f50606;
+  font-weight: bold;
+  padding: 20px 0;
+  background: linear-gradient(to bottom, #fff0f0, #ffe0ec);
+  animation: bounce 2s infinite;
+}
+
+.calendar-bottom {
+  font-size: 1em;
+  padding: 15px 10px;
+  color: #800040;
+  background-color: #fff9fc;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes dropIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 50px auto;
+      max-width: 1200px;
+    }
+
+    .gift-box {
+      width: 150px;
+      height: 150px;
+      margin-top: 80px;
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      animation: float 2s infinite;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gift-box::before, .gift-box::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .gift-box::before {
+      width: 25px;
+      height: 100%;
+      left: 62.5px;
+      top: 0;
+    }
+
+    .gift-box::after {
+      width: 100%;
+      height: 25px;
+      top: 62.5px;
+      left: 0;
+    }
+
+    .lid {
+      width: 150px;
+      height: 30px;
+      background: #c71585;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      border-radius: 12px 12px 0 0;
+      transition: transform 0.5s ease;
+    }
+
+    .gift-box.open .lid {
+      transform: rotateX(90deg);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .celebration {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.6);
+      z-index: 999;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      clip-path: path("M10 0 C 12 0, 14 2, 14 4 C 14 6, 10 10, 10 10 C 10 10, 6 6, 6 4 C 6 2, 8 0, 10 0 Z");
+      animation: fall 3s linear infinite;
+      opacity: 0.8;
+    }
+
+    .spark {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: gold;
+      animation: sparkle 3s ease-out forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes sparkle {
+      0% { transform: scale(0.5); opacity: 0.7; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    .content {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .content video, .content iframe {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .animated-card {
+      background: #fff8fa;
+      border-radius: 20px;
+      padding: 20px;
+      animation: pulseWish 2s infinite;
+      color: #c71585;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+    }
+
+    @keyframes pulseWish {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    video {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Portrait style */
+video.portrait {
+  width: auto;
+  max-height: 90vh;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  video.portrait {
+    max-height: 80vh;
+  }
+}
+
+</style>
+<body>
+  <div class="calendar-panel">
+  <div class="calendar-top">June</div>
+  <div class="calendar-day">15</div>
+  <div class="calendar-bottom">The Day My Heart Celebrates ❤️</div>
+</div>
+    
+
+
+<h1 style="color: rgb(0, 98, 128);">Chocuu gift par click kari ne niche joje</h1>
+
+<div class="box-container">
+  <div class="gift-box" data-type="book"><div class="lid"></div></div>
+
+</div>
+
+<div class="celebration" id="celebration" style="display: none;"></div>
+
+<!-- Surprise Contents -->
+<div class="content" id="book">
+  <img src="./WE/Book.png" id="pdfPreview" alt="Click to open your book" style="max-width: 90%; border-radius: 16px; box-shadow: 0 0 20px pink; cursor: pointer;" />
+</div>
+
+
+<div class="content" id="wish">
+  <div class="animated-card">
+    <h2>You're My Everything 💘</h2>
+    <p>I may not be a poet, but my heart rhymes with your love.  
+    You light up my world more than any birthday candle could.  
+    Just wait, there's more to come...</p>
+  </div>
+</div>
+
+
+</body>
+
+<script>
+  const boxes = document.querySelectorAll('.gift-box');
+  const celebration = document.getElementById('celebration');
+
+  boxes.forEach(box => {
+    box.addEventListener('click', () => {
+      box.classList.add('open');
+
+      const type = box.getAttribute('data-type');
+
+      // Clear any content first
+      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+      celebration.style.display = 'block';
+
+      // Heart rain + sparkles
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + "%";
+        celebration.appendChild(heart);
+      }
+
+      for (let i = 0; i < 30; i++) {
+        const spark = document.createElement('div');
+        spark.classList.add('spark');
+        spark.style.left = Math.random() * 100 + "%";
+        spark.style.top = Math.random() * 100 + "%";
+        celebration.appendChild(spark);
+      }
+
+      setTimeout(() => {
+        celebration.innerHTML = '';
+        celebration.style.display = 'none';
+
+        document.getElementById(type).style.display = 'block';
+      }, 3000);
+    });
+  });
+
+  
+  document.getElementById('pdfPreview').addEventListener('click', () => {
+    window.open('./WE/Wishes.pdf', '_blank'); // opens in a new tab
+  });
+
+
+</script>
+
+</html>

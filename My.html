@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+    .header{
+        color: purple;
+        background-color: rgba(255, 0, 8, 0.176);
+        font-weight: 900;
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* image slider */
+   .slider-container {
+      width: 90%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      border: 1px solid #333;
+      border-radius: 30px;
+    }
+    .slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #memories p{
+        color: rgba(128, 0, 128, 0.844);
+        font-size: large;
+        font-weight: 800; 
+    }
+  .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 2fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+
+
+
+
+    @keyframes bounceText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes firework {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      80% {
+        transform: scale(1.5);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    .animate-bounce-text {
+      animation: bounceText 1s infinite;
+    }
+
+    .firework {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      background: radial-gradient(circle, white, yellow, red);
+      animation: firework 1s infinite ease-in-out;
+    }
+
+    .firework:nth-child(1) {
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .firework:nth-child(2) {
+      top: 20%;
+      left: 80%;
+      animation-delay: 0.3s;
+    }
+
+    .firework:nth-child(3) {
+      top: 50%;
+      left: 40%;
+      animation-delay: 0.6s;
+    }
+
+    .firework:nth-child(4) {
+      top: 70%;
+      left: 70%;
+      animation-delay: 0.9s;
+    }
+
+    .firework:nth-child(5) {
+      top: 30%;
+      left: 60%;
+      animation-delay: 1.2s;
+    }
+
+.line1{
+    background-color: pink;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+.line2{
+    background-color: pink;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.typewriter-footer {
+  position: fixed;
+  bottom: -30px;
+  left: -25px;
+  width: 100%;
+  /* background: rgba(255, 255, 255, 0.5); */
+  /* backdrop-filter: blur(5px); */
+  padding: 20px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 1.2em;
+  color: #a12c52;
+  /* box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.1); */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 100;
+}
+
+.typewriter-footer.visible {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+</style>
+<body>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+
+    <h1 class="text-6xl md:text-7xl font-extrabold text-white animate-bounce-text z-10 drop-shadow-lg">
+    <!-- 🎉 Happy Birthday! 🎂 -->
+    <div class="header">
+        <p>Happy Birthday My Cute Girl !</p>
+    </div>
+  </h1>
+     <div class="slider-container" style="margin-top: 20px;">
+    <div class="slider-track" id="sliderTrack">
+      <div class="slide" style="background-image: url('./WE/us1.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us2.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us3.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us4.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us5.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us6.png');"></div>
+      <div class="slide" style="background-image: url('./WE/us7.png');"></div>
+    </div>
+  </div>
+  
+   <div id="memories" class="memories-section">
+      <h2>💖 Many Many Returns of the day. 💖</h2>
+      <p>I can't Explain how important you are for me. Please always stay happy because there is someone who feels happy when you smile.</p>
+      
+      <div class="gallery">
+          <img src="./WE/We.png" alt="Memory 1" style="grid-column: 1/4;">
+          <img src="./WE/We2.png" alt="Memory 2" >
+          <!-- <img src="./WE/We3.png" alt="Memory 3"> -->
+          <img src="./WE/We4.png" alt="Memory 4" >
+          <img src="./WE/us7.png" alt="Memory 5" style="grid-column: 1/4;">
+          
+  </div>
+
+  <footer>
+        <div class="line1">
+            <p>
+                <b> Hye Chocuu!!!</b>
+                Aasha rakhu chu k tane aa gamse and sorry aama thi koi pic tane  <br> dil dukhave eva lagya hoy to.
+            </p>
+        </div>
+
+  </footer>
+
+  <footer class="typewriter-footer hidden" id="typewriter-footer">
+  <p id="typewriter-text"></p>
+</footer>
+
+  
+
+  
+</body>
+    <script>
+    const sliderTrack = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.slide');
+    const slideCount = slides.length;
+
+    // Clone first slide and append to the end for smooth looping
+    const firstClone = slides[0].cloneNode(true);
+    sliderTrack.appendChild(firstClone);
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+
+    function showSlide(index, animate = true) {
+      if (animate) {
+        sliderTrack.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
+      } else {
+        sliderTrack.style.transition = 'none';
+      }
+      sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex++;
+      showSlide(currentIndex, true);
+
+      // When moving to the clone (last slide), jump instantly to the real first slide
+      if (currentIndex === slideCount) {
+        // Wait for the transition to finish
+        setTimeout(() => {
+          // Instantly (no animation) jump back to first real slide
+          showSlide(0, false);
+          currentIndex = 0;
+          isTransitioning = false;
+        }, 500); // Transition duration
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 500);
+      }
+    }
+
+    // Start the slider
+    showSlide(currentIndex, false);
+    setInterval(nextSlide, 2000);
+
+    
+  const typewriterFooter = document.getElementById("typewriter-footer");
+  const textEl = document.getElementById("typewriter-text");
+
+  const lines = [
+    "Happy Birthday Chocuuu 💗🥰..",
+    "Chocuu sambhad..",
+    "Tu chene taru dhyan rakhya kar . ",
+    "Maro ekno ek dikro chu tu 🥰🥰",
+    "  Tane kai thay chene to mane taklif pade che 🌙  ",
+    "And ha Haju ek vat kav ...🌅",
+    "Tu mari life ni sau thi cute girl cho  ♾️",
+    "Maro dikro chu tu 💗💗💗",
+    "Sorry but...",
+    "I love you so much 🥰",
+    "Areh!! Sorry Sorry gusse na thaje and dhyan rakh je",
+    "Once again Happy Birthday my princes."
+  ];
+
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeLine() {
+    if (charIndex < lines[lineIndex].length) {
+      textEl.textContent += lines[lineIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeLine, 80); // typing speed
+    } else {
+      setTimeout(() => {
+        // Erase text before showing next line
+        eraseLine();
+      }, 3000); // delay before next line
+    }
+  }
+
+  function eraseLine() {
+    if (textEl.textContent.length > 0) {
+      textEl.textContent = textEl.textContent.slice(0, -1);
+      setTimeout(eraseLine, 30);
+    } else {
+      lineIndex = (lineIndex + 1) % lines.length;
+      charIndex = 0;
+      setTimeout(typeLine, 1000);
+    }
+  }
+
+  // Show footer when user scrolls to bottom
+  window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition >= pageHeight - 10) {
+      if (!typewriterFooter.classList.contains("visible")) {
+        typewriterFooter.classList.remove("hidden");
+        typewriterFooter.classList.add("visible");
+        typeLine(); // start typing
+      }
+    } else {
+      typewriterFooter.classList.remove("visible");
+      typewriterFooter.classList.add("hidden");
+      textEl.textContent = "";
+      lineIndex = 0;
+      charIndex = 0;
+    }
+  });
+
+
+
+
+  </script>
+</html>

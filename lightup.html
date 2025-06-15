@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Chocuu</title>
+ <!-- <link rel="stylesheet" href="index.css" /> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet"> -->
+ <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #fff0f0, #ffe0ec);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .top-video {
+      width: 100vw;
+      height: 30vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 35vh; /* Leave space for video */
+      padding-bottom: 100px; /* Leave space for audio */
+      text-align: center;
+    }
+
+    .gift-box {
+      width: 350px;
+      height: 350px;
+      background: url('./WE/gift\ box.jpg') no-repeat center/contain;
+      cursor: pointer;
+      animation: float 2s ease-in-out infinite;
+      margin-bottom: 40px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .celebration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .message {
+      font-size: 2rem;
+      color: #d6336c;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .audio-player {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 15px 25px;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 2000;
+    }
+
+    .audio-player img {
+      width: 40px;
+      height: 40px;
+    }
+
+    audio {
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      .audio-player {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .message {
+        font-size: 1.5rem;
+      }
+    }
+
+    
+#dancer {
+  position: absolute;
+  top: 10px;         /* adjust vertically */
+  left: 5%;        /* push to the right */
+  width: 150vw;
+  height: 50vh;      /* adjust size as needed */
+  z-index: 10;
+  pointer-events: none;
+  animation: bounceDance 2s ease-in-out infinite;
+}
+
+@keyframes bounceDance {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- 🎥 Top video -->
+  <video class="hidden top-video" id="birthdayVideo" autoplay muted playsinline loop>
+    <source src="./WE/Gift Open.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- 🎊 Confetti -->
+  <canvas class="celebration hidden" id="confettiCanvas"></canvas>
+
+  <!-- 🎁 Main content -->
+       <!-- Dancing girl video -->
+    <img src="./WE/finalshe.gif" alt="Dancing Girl" id="dancer">
+    
+  <div class="container">
+    <div class="gift-box" id="giftBox" title="Click to open!"></div>
+
+    <div class="hidden" id="birthdayMessage">
+      <div class="message">Happy Birthday My Girl <p> Tu j chu ek jena message thi hu maru badhu j kam <br> muki ne tara jode vat karva
+      mate aavto res. <br>taro ek message aave to hu jamta jamta ubho thai ne phone leva ubho thai jav 😅. <br> have tu mara mate su Chu 
+    ebi kemno kav🥰. Pn aasha rakhu chu yarr k tu life ma bavuj aagad vadhis😊 and <br> always badha ne and potane khush rakhis. <br> mari dil thi icha 
+  che tane ek sau thi best doctor jovani becasue atyare badha khali <br> paisa mate j treatment kare che. Pn tu e badha thi alag hois 🤗. <br>
+Once Again Happy Birthday Payal. Mah Chocuu. Mari princes. <br><br><br><br><br> AA tu Headphone lagai ne sambhad je . Sayad tane bav hasu aavse pn
+atlist tu khush tha je. <br><br><br></p></div>
+      
+    </div>
+  </div>
+
+  <!-- 🔉 Audio player -->
+  <div class="audio-player hidden" id="audioSection">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Audio Icon">
+    <audio controls>
+      <source src="./WE/myaudio.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const giftBox = document.getElementById("giftBox");
+    const confettiCanvas = document.getElementById("confettiCanvas");
+    const birthdayVideo = document.getElementById("birthdayVideo");
+    const audioSection = document.getElementById("audioSection");
+    const birthdayMessage = document.getElementById("birthdayMessage");
+
+    giftBox.addEventListener("click", () => {
+      confettiCanvas.classList.remove("hidden");
+      startConfetti();
+
+      setTimeout(() => {
+        giftBox.classList.add("hidden");
+        confettiCanvas.classList.add("hidden");
+        birthdayVideo.classList.remove("hidden");
+        audioSection.classList.remove("hidden");
+        birthdayMessage.classList.remove("hidden");
+
+        // Play video safely
+        birthdayVideo.muted = true;
+        birthdayVideo.play().catch(e => console.log("Autoplay failed:", e));
+      }, 3000);
+    });
+
+    function startConfetti() {
+      const canvas = confettiCanvas;
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ["#fce18a", "#ff726d", "#b48def", "#f4306d"];
+
+      for (let i = 0; i < 150; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          w: Math.random() * 10 + 2,
+          h: Math.random() * 20 + 8,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speed: Math.random() * 5 + 2
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x, p.y, p.w, p.h);
+        });
+      }
+
+      function update() {
+        particles.forEach(p => {
+          p.y += p.speed;
+          if (p.y > canvas.height) {
+            p.y = -p.h;
+            p.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      function animate() {
+        draw();
+        update();
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    setTimeout(() => {
+  giftBox.classList.add("hidden");
+  confettiCanvas.classList.add("hidden");
+  birthdayVideo.classList.remove("hidden");
+  audioSection.classList.remove("hidden");
+  birthdayMessage.classList.remove("hidden");
+  document.getElementById("dancer").classList.add("hidden"); // 👈 Hide the GIF
+}, 3000);
+
+
+  </script>
+  </script>
+</body>
+</html>
